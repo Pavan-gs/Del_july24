@@ -1,0 +1,50 @@
+Source code management system / Version Control System
+================================================
+Centralized VCS
+Distributed VCS
+
+Github --> Cloud based secured storage repository
+Collaborate and version control
+
+Git --> Desktop based application --> repository
+
+To copy a repo to your local machine
+===============================
+Download the repository as a zip file
+on the cmd, git clone followed by the url for the repo
+
+Accessing an individual's repository
+=============================
+git fork --> forking a repo, creating a copy of an individual's repo in your account
+
+Pull request --> To notify the changes to the author
+Merge pull request
+
+ Git commands
+=============
+git init --> To initiate a empty local repository
+git remote add origin "url to your repo"
+git pull origin main--> Pull the remore repo into local
+vi file.py --> make changes to the file pulled from remote
+git add file.py
+git commit  -m "saved"
+git status
+git push origin master
+You can accept or reject the merge pull request from the local/git in the remote/github 
+
+# Versioning
+git tag
+git clean
+git log
+git stash
+git checkout
+git config
+git branch
+
+
+
+
+
+
+
+
