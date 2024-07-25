@@ -32,14 +32,18 @@ git status
 git push origin master
 You can accept or reject the merge pull request from the local/git in the remote/github 
 
+Before committing, the data will be in staging area
+
 # Versioning
 git tag
-git clean
-git log
-git stash
-git checkout
-git config
-git branch
+
+git clean  -f  --> To remove untracked files from the local repo
+git log   -n     --> Show the limited number of previous commits
+git stash --> If you want to save a file without committing into git (stashed commit)
+git checkout  -b   branch name --> to switch between the branch 
+git config --> get and set configuration variables that controls all the aspects of git
+git branch --> list the pwd
+git config  --global user.name "myname" --> set up username during the initial git set up
 
 
 
