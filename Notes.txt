@@ -338,30 +338,147 @@ and print the list with index and the name along with dtype
 2   c
   dtype:str
 
+Hive
+====
+select * from employee where sal>10000
 
+DWH --> OLAP
+DB --> OLTP
+ 
+Data warehousing like solution 
+invented by FB
 
+select * from data where people liked>100; 
 
+(100 lines of code --> java)
 
+(50 lines of code --> python)
 
+Lot of data
+Streaming data
+Variety of data
 
+With MR --> Hard to code
+Solution --> They had a lot of inhouse sql developers
 
+HQL--> Hive Query Language (Sql like)
 
+Thrift servers --> JDBC/ODBC --> enable cross platform application development
 
+oracle sql --> locally + Azure sql on cloud
+Hive/sql + AWS redshift
+sql + az synapse
 
+Metastore / derby --> Local database of hive --> Metadata about the data in Hive
+Hue --> Web interface for hive --> Only available in cloudera
 
+Hive is schema on read / sql is schema on write
 
+create table employees(name string, salary float, dept string)
+row format delimited
+fields terminated by ',';
 
+// If the second line is not given (newline is assumed to be row delimiter)
+//third line by default ascii is considered to be the column seperator
 
+describe formatted database deloitte;
+load data local inpath 'emp1.txt' into table employees;
+describe formatted employees;
 
+Internal table/managed table
+========================
+Upon loading a data from hdfs into internal table, the data gets moved from hdfs location to hive warehouse location inside hdfs
+Now, data is only accessible to people working on hive, making it un accessible from anywhere else.
 
+If the table is dropped, data is lost permanently
+ 
+External tables
+============
+create external table employees(name string, salary float, dept string)
+row format delimited
+fields terminated by ','
+location '/hdfs_july24/hive';
 
+describe formatted employees;
 
+The table is mapped into the location of hdfs, the data stays intact irrespective of whatever we do in the table
 
+Partitions
+========
+create table employees(name string, salary float, dept string)
+partitioned by (state string)
+row format delimited
+fields terminated by ','
 
+load data local inpath 'emp.txt' into table employees
+partition (state="KA")
 
+load data local inpath 'emp1.txt' into table employees
+partition (state="MH")
 
+select * from employees
+show partitions employees
+select * from employees where state='KA' --> data is fetched from metastore
+select avg(salary) from employees; --> this triggers a MR job
 
+alter table employees drop if exists partition(state='Dl')
+insert overwrite directory 'hdfs_july24' select * from employees where dept="HR"
 
+Partition for external table
+======================
+create table employees(name string, salary float, dept string)
+partitioned by (state string)
+row format delimited
+fields terminated by ','
+location '/hdfs/hive';
+
+alter table employees
+add partition(state='KA')
+location '/hdfs/hive/Ka'
+
+show partitions employees
+alter table employees drop if exists partition (state=string)
+show partitions employees
+
+static partitioning
+===============
+create table master(name string, sal float, dept string)
+row format delimited
+fields terminated by ','
+
+load data local inpath 'emp*txt' into table master
+
+create table static(name string, sal float)
+partitioned by(dept string)
+row format delimited
+fields terminated by ',';
+
+insert into table static partition(dept="HR") select name, sal from master where dept="HR";
+insert into table static partition(dept="MK") select name, sal from master where dept="MK";
+insert into table static partition(dept="FI") select name, sal from master where dept="FI";
+
+dynamic partitioning
+
+create table dynamic(name string, sal float)
+partitioned by(dept string)
+row format delimited
+fields terminated by ',';
+
+set hive.exec.dynamic.partition.mode=nonstrict
+insert into table static partition(dept) select name, sal,dept from master
+
+Bucketing
+========
+create table bucks(name string, sal float)
+#partitioned by(dept string)
+clustered by (sal) into 2 buckets
+row format delimited
+fields terminated by ',';
+
+set hive.enforce.bucketing=true
+set hive.enforce.sorting = true
+
+insert into table bucks partition(dept) select name, sal,dept from master
 
 
 
