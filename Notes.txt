@@ -480,5 +480,164 @@ set hive.enforce.sorting = true
 
 insert into table bucks partition(dept) select name, sal,dept from master
 
+Spark
+=====
+*-------------------------------------------------------------------------------------*
+Spark --> Unified, in-memory [RAM] cluster computing framework    [written in Scala (functional programming language)] --> 100 times faster than YARN (in-memory) 10 times faster than YARN (in disc)
+
+Unified platform 
+==============
+Complex programming logic (RDD syntax to write programs) using Scala, Python, Java, R
+Dataframes
+spark sql
+spark ml, mllib
+spark streaming 
+graph
+
+Run anywhere
+============
+HDFS, Apache mesos, AWS S3, Azure blob storage
+
+Spark RDD (Resilient Distributed Datasets) --> Logical Split of the data
+
+Lazy evalution
+============
+Transformations --> The functions or business logic --> Upon applying a transformation
+spark creates a logical plan of execution (Directed Acyclic Graphs [DAG's])
+
+Actions --> Actual execution of the logical plan
+
+Narrow Transformations 
+Wide Transformations 
+
+Shared Variables --> Variables that has to be shared among different RDD's 
+
+Accumulators
+Broadcasters
+
+Spark Persistance  --> Save the execution state
+
+Spark SQL dataframes
+
+
+Spark MLlib --> RDD's (outdated)
+Spark ML --> Spark Dataframes
+
+Spark Streaming
+
+Kafka
+
+Pyspark
+-----------
+RDD syntax  --> Spark Context
+Dataframes --> Spark Session --> Spark context, streaming context, sql context
+Datasets --> Not available for Python/Java
+
+
+RDD's exposes API's called as Transformations and Actions
+
+Transformations : Takes one RDD as input and produce another RDD as output
+
+1. Row level transformations : Map, Filter, Flatmap, map partition, map partition with index
+
+2. Aggregations : Reduce bykey,aggregate bykey
+
+3. Joins
+
+4. Ranking: groupbykey
+
+Actions : They produce the final output to the driver program
+
+1. Preview --> Take,Sample,top
+
+2. Collect
+
+3. Reduce
+
+4. Saveastext,saveasseq
+
+# Directed Acyclic Graphs : 
+
+# Dag Scheduler : It completes the computation and execution of stages for a job. Tracks the RDD's--> Assign task to task scheduler
+
+# Task scheduler ( Submitting tasks for execution)
+
+# DAG process:
+
+1. User submits an apache spark application
+
+2. The driver module takes the application (Spark context is set-up)
+
+3. Driver identify transformations & Actions required
+
+4. Creates a logical flow of operations (DAG)
+
+5. Dag is converted into Physical execution plan ( Stages )
+
+6. Then the tasks are sent to the cluster with the help of DAG scheduler
+
+
+Parquet file format
+---------------------------
+
+Compressed columnar file format
+
+
+Machine Learning
+-------------------------
+
+Supervised 
+---------------
+
+Building predictive models  --> Learning from the statistical/mathematical relationship between Y var & all the x vars.
+
+Target/Dependent variable  (y var) 
+Predictor / Independent variables (x vars)
+
+classification --> Target variable is pre-defined
+Regression --> Target variable is a entire range of values / continuous
+
+Linear models --> When y &  all the x vars relationship is simple
+Non-linear --> When y &  all the x vars relationship is complex
+Ensemble --> Combination of more than one model's learning (Bagging, Boosting)
+
+Regression
+----------------
+Linear Regression 
+y = mx+c
+e(Price) =  b0+ b1*(CRIM)+b2*(LSTAT)+b3*(RM)+...............+e
+
+OLS
+Line of best fit
+Residual / Error --> Squared difference between actual & fitted values
+Constant / Intercept --> A base value when X is "0"
+Slope coefficient / weights --> Impact of x on y (variation of Y caused by variation of X)
+
+Standardisation -->  Center & Scale
+
+((xi-mean(x) / std(x))
+
+Classification
+------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
