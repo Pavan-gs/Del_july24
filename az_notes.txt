@@ -1,0 +1,367 @@
+IAAS --> Virtual network / virtual machines
+
+PAAS --> Cloud services (Playstore)
+
+SAAS --> Applications hosted on cloud (Google mail, CRM, ERP)
+
+IDAAS --> SOS, Multi factor authentication (Az active directory, AWS IAM)
+
+NAAS --> AWS direct connect, AZ networking
+
+Deployment models
+=================
+Public --> Shared by multiple organisations
+Private --> Private to a organisation/individual
+Hybrid --> Combination of private and public
+Multi-cloud--> Combination of services from different providers
+Community --> Shared across a community
+
+Az services
+=========
+Compute services
+===============
+Virtual machines
+Service fabric
+Batch
+Scheduler
+
+Networking services
+=================
+Virtual networks
+Traffic manager
+Express route
+
+Identity and access management
+===========================
+Active directory/ms entra connect
+Key vault
+Multi-factor authentication
+
+Media and CDN
+=============
+CDN
+Media services
+
+Web and mobile services
+=====================
+Function apps
+Web apps
+API apps & management
+
+Analytics
+========
+HD insights
+ML
+Streaming --> IOt hub, Event hub
+Data factory
+Synapse
+
+Storage and back up
+=================
+Az blob storage
+Datlake gen 1
+Files
+back up
+site recovery
+
+database
+========
+sql
+Cosmos
+redis
+
+Integration services
+================
+Service bus
+Biztalk
+Storage queues
+Event grid
+Logic apps
+
+Management
+===========
+Key-vault
+Portal
+Automation
+
+Commerce
+=========
+VM deployment
+Store/market place
+
+Developer services
+================
+Visual studio
+App insights
+
+Serverless computing
+==================
+Azure functions
+Logic apps
+Event grid
+
+ML
+===
+Az ML studio
+
+Virtual machines
+==============
+VM is a virtual computer with hardware/software etc.
+
+Isolation
+Internet communication
+Traffic filtering
+On-premise connectivity
+
+OSI layers
+========
+
+Application layer --> Human - computer interaction layer where applications can access the network service
+
+Presentation layer --> Ensures that the data is in a usable format and is where the data encryption happens
+
+Session layer --> Maintains the connections and is responsible for controlling ports and sessions
+
+Transport layer --> Transmits data using transaction protocols including TCP and UDP
+
+Network layer --> Decides which physical path the data will follow
+
+Data link layer --> Defines the format of data on the network
+
+Physical layer --> Transmits the raw bit of data streams over the physical medium
+
+Socket --> IP + Port
+HTTP--> 80
+SSH --> 22
+HTTPS --> 443
+
+Virtual Network
+=============
+Act as a communication channel between resources launched in the cloud.
+
+Azure Vnet
+=========
+Representation of your/organisation's own network in the cloud, logical isolation of azure cloud dedicated to your subscription
+
+Subnet --> Subnetwork
+Route table
+Network Security Groups --> Firewalls, responsible for filtering incoming, outgoingtraffic from your VM's
+Network Interface Card
+
+IP addresses   --> Internet protocol --> Unique numerical address
+==========
+Public --> Globally unique, accessible from the internet
+Private --> Local network, not accessible from the internet
+Static IP --> Manually assigned, remains constant
+Dynamic IP --> Automatically assigned, changes periodically
+
+IPV4 (32 bit)
+IPV6 (128 bit)
+
+_,_,_,_
+
+0-255,0-255,0-255,0-255
+
+0.0.0.0 to 255.255.255.255
+
+192.168.0.0 to 192.168.0.255 = 256
+192.168.0.1
+192.168.0.2
+192.168.0.3
+.
+.
+.
+.
+.
+192.168.0.255
+
+CIDR --> Classless Inter Domain Routing
+================================
+192.168.170.0  - 192.168.170.255 --> 256 unique addresses --> 192.168.170.0/24
+192.172.0.0  - 192.172.255.255 --> 192.172.0.0/16 --> 256*256
+192.0.0.0/8 --> 256*256*256
+
+Preferred IP series for intranet (private IP)
+
+small network --> 192.168.1.x --> 2**8
+Large network --> 172.16.x.x --> 2**16
+
+
+Security
+========
+Network Security Groups --> Firewalls, responsible for filtering incoming, outgoingtraffic from your VM's
+Application security groups --> Provide for the grouping of servers with similar ports filtering requirements, group together servers with similar functions like webservers
+
+Azure Active directory --> entra id
+===================================
+
+Authentication
+Single sign On [sso]
+Application management
+b2b
+b2c
+Device management
+multi-factor authentication
+ddos
+
+
+1. Key-vault service --> Secret management, key management, certificate management, storing secretes with a hardware security model (HSM's) 
+
+
+Azure Advanced Threat protection (ATP)
+Azure information protection
+
+Governance
+==========
+
+Az policy
+Policy inititives --> Definitions, Assignments
+RBAC
+Resource locks --> cannot delete, read only
+Blueprints
+
+Tags
+====
+Key-value pair
+
+Azure monitor
+=============
+Collect, analyse and act on telemetry data from cloud and on-premise to improve performance
+
+Azure health centre
+===================
+Analyse, respond, visualise and integrate
+
+
+Subscription
+=============
+
+Dev
+Testing
+Production
+
+Cost management
+===============
+Resource types
+Services
+Location
+
+Tools
+=====
+Calculator
+Adbisor
+Hub
+Cost analysis
+cost alerts
+
+Azure storage
+=============
+PAAS
+Managed cloud storage service --> high availability, durable, scalable and redundant storage
+
+Files, messages, tables and other types of information
+
+1 subscription --> 100 accounts --> 1 account * 500 tb
+
+3 categories
+============
+
+1. Storage for virtual machines (like disks and files)
+2. Unstructured data (videos, audio, images, messages, text) --> blobs & datalake stores
+3. Structured data --> tables, azure sql db, cosmos db
+
+types of storage
+================
+Blob storage --> Object storage --> Huge amount of unstructured data such as text, image, videos, audio, data for back up, disaster recovery or binary data
+Files --> Highly available network file shares, uses SMB protocol (standard server message block) --> suitable for migration of data
+Tables --> Structured sql/nosql data, key & value pair --> schemaless design
+Queues --> Store and retrieve messages, each message of maximum size of 64 kb --> can store millions of messages
+
+Performance
+===========
+Standard --> Backed by HDD (magnetic drives), lowest cost per gb, best for applications that requires bulk storage, data is accesses infrequently
+Premium --> Are backed SSD (Solid state drives), offers low latency and consistant performance, use with axure vm's disks, best for i/o intensive applications --> db
+
+
+General purpose v1 --> Legacy, doesn't support performance tiers, 
+General purpose v2
+Blob storage
+
+
+Performance tiers
+
+Hot   --> Optimized for storing data that is accesses frequently like VM, files, images, videos that are in regular use --> storage cost (highest) and read cost (low)
+Cool --> Optimied for storing data that is infrequently accessed and stored for atleast 30 days like back up data, storage cost(low) and read cost (higher than hot tier)
+Archive --> Optimized for storing data that is really accessed and stored for atleast 180 days with flexible latency requirements, storage cost (least) and read cost (highest)
+
+
+Blob containers & categories
+============================
+
+Containers --> Directory, can store many blobs under one container
+
+Block blob --> Any text, video, audio, image files
+Page blob --> random access files upto 8 tb --> Virtual hard drive --> serve as a disk for vm
+Append blob --> Made up of multiple block blobs, optimized for append operations --> ideal for log data in vm
+
+Storage replication
+===================
+LRS --> 3 copies of data in 3 storage boxes within the same data center
+ZRS --> 3 copies of data in multiple data centres within same region
+GRS --> 3 copies of data in primary region, 3 copies in a secondary region
+RA-GRS --> Same as GRS, Read only access to secondary data centre
+GZRS --> ZRS synchronously and single physical location in secondary region
+RA-GRS --> same GZRS but read only access to the secondary region
+
+
+Data lake gen2 combines the best features of the below 2,
+
+Data lake
+=========
+Hadoop compatible
+Optimized drivers
+
+Blob storage
+============
+Low cost, storage tiers, high availability
+
+                               Blob storage            ADL gen2
+
+
+Access tiers                      yes                     yes
+
+Top level Organization         Containers             Containers
+
+Low level organisation         Virtual directory      Directory
+
+Data containers                   Blob                  File
+
+Soft delete                       yes                    no
+    
+Static website                    yes                    no
+
+RBAC                              yes                    no
+
+Access control list		   No                    yes
+
+SAS                               yes                    yes
+
+Access keys                       yes                    yes
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
