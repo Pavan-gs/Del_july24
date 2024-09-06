@@ -4,7 +4,7 @@ PAAS --> Cloud services (Playstore)
 
 SAAS --> Applications hosted on cloud (Google mail, CRM, ERP)
 
-IDAAS --> SOS, Multi factor authentication (Az active directory, AWS IAM)
+IDAAS --> SOS, Multi factor authentication (Az active directory/entra id, AWS IAM)
 
 NAAS --> AWS direct connect, AZ networking
 
@@ -194,7 +194,6 @@ Application security groups --> Provide for the grouping of servers with similar
 
 Azure Active directory --> entra id
 ===================================
-
 Authentication
 Single sign On [sso]
 Application management
@@ -205,6 +204,11 @@ multi-factor authentication
 ddos
 
 
+1. Identity management --> user group and device management
+2. single sign on --> Access multiple applications with one set of credentials
+3. Multi-factor authentication --> Enhanced security with additional verification steps
+4. Directory integrations/conditional access
+
 1. Key-vault service --> Secret management, key management, certificate management, storing secretes with a hardware security model (HSM's) 
 
 
@@ -213,7 +217,6 @@ Azure information protection
 
 Governance
 ==========
-
 Az policy
 Policy inititives --> Definitions, Assignments
 RBAC
@@ -232,10 +235,8 @@ Azure health centre
 ===================
 Analyse, respond, visualise and integrate
 
-
 Subscription
 =============
-
 Dev
 Testing
 Production
@@ -249,7 +250,7 @@ Location
 Tools
 =====
 Calculator
-Adbisor
+Advisor
 Hub
 Cost analysis
 cost alerts
@@ -297,7 +298,6 @@ Archive --> Optimized for storing data that is really accessed and stored for at
 
 Blob containers & categories
 ============================
-
 Containers --> Directory, can store many blobs under one container
 
 Block blob --> Any text, video, audio, image files
@@ -349,13 +349,177 @@ SAS                               yes                    yes
 Access keys                       yes                    yes
  
 
+Azure sql
+=========
+PAAS
+Cloud based managed database services
+
+Benefits
+========
+Convenient
+Cost
+Scale
+Security
+administration
+SLA --> 99.99% uptime
+
+MS
+==
+Hardware, data centre, virtualization, patching, OS, networking, security, auditing, scaling, back up/restore
+
+DBA
+===
+Design, Development, Migrations, capacity planning, performance tuning, automation, optimization
 
 
+Deployment models
+=================
+
+Single db --> Isolated & portable, contained, own set of resources
+
+Elastic Pool --> Collection of single db's, shared set of resources, cost effective solution of the usage is unpredictable
+
+Managed instances --> 100% compatibility with latest sql server, lift n shift/migration  
 
 
+The vCore-based purchasing model lets you choose the number of vCores, the amount of memory, and the amount and speed of storage. 
+The vCore-based purchasing model also allows you to use Azure Hybrid Benefit for SQL Server to gain cost savings by leveraging your existing SQL Server licenses.
 
 
+The DTU-based purchasing model offers a blend of compute, memory, and I/O resources in three service tiers, to support light to heavy database workloads. 
+Compute sizes within each tier provide a different mix of these resources, to which you can add additional storage resources.
 
+
+Cosmos db
+=========
+Nosql db --> Columnar (Hbase, Cassandra), Document db (Mongo db, Cosmos db), Graph db(Neo4j, tiger graph), Key-value pair (Redi's, dynamo db)
+
+
+APi's --> sql(rdbms), mongo(document), cassandra(columnar), gremlin(graph), table(key/value pair), postgre sql
+api --> dot net, node js, python, java
+
+
+{
+"name":"arun",
+"sal":8000,
+"city":"blr"
+
+Azure Synapse
+=============
+Enterprise data warehousing and big data analytics tool
+
+SQL (synapse sql)
+Spark (processing)
+Pipelines (Integration) --> ETL, ELT (Az Data Factory) 
+
+Integration with Cosmos db, ML, Power BI
+
+Synapse workspace
+=================
+To build cloud based enterprise analytical solutions
+Attached with ADLS gen 2 file system
+
+SQL --> SQL pool --> run t-sql script on data in linked services
+
+Serverless --> built-in --> Use sql without reserving any capacity.
+Billing is based on the amount of data processed to run the query
+
+Openrow set --> Allows you to access files in Az storage and return the content as a set of rows
+
+Linked Services --> Connection strings, it defines the connection information required for workspace to connect with external resources
+
+Synapse sql
+===========
+Ability to do T-sql based analytics in synapse workspace
+2 consumption models,
+
+Dedicated sql pool --> Consumes billable resources if it's active, pause the pool to reduce the costs and this is associated with a sql db
+Serverless sql pool --> It comes by default without reserving any capacity, you're billed based on the amount of data processed to run a query
+
+Data explorer pools --> IT can be used to run near real-time analytics on large volume of logs and time series data , streaming from applications, websites, IOT devices and more.
+
+Apache spark for Synapse
+========================
+Ability to do spark based analytics in synapse workspace
+Spark session is created when you choose spark pool
+
+pool is like a runtime, it controls the resources used in the session
+
+Spark notebook
+Spark job definitions
+
+Pipelines
+=========
+
+To move data between srvices & orchestrate activities.
+Logical grouping of activities that performs a task together
+Activities defines actions within pipelines --> Copying data, running a notebook or a sql/spark program
+
+Triggers
+Integration dataset
+
+
+Azure Databricks
+================
+Spark based Big data analytics platform optimized for Azure
+
+Workspace
+=========
+Environment to access all your databricks asssets
+
+Notebooks
+Libraries
+Experimements
+
+
+Cluster --> Set of computational resources and configurations on which you run data engineering, data science workloads, such as production ETL pipelines, streaming analytics,
+ad-hoc analysis & ML model
+
+Folders
+=======
+All static assets, notebooks, experiments
+
+Special folders
+===============
+Shared
+users
+
+Data components
+===============
+
+1. Tables --> Tables created using spark sql / databricks sql (stored in hive metastore), query it using sql
+2. Data --> View all data cources, tables, files(dbfs) etc. 
+3. DBFS --> Distributed file system, upload/download files/ store data for spark jobs
+4. Hive catalogue --> Metadata repository for spark tables, manages table definitions, schemas, locations (compatible with hive ql)
+5. Delta tables --> A opensource storage format for data lakes, ACID transactions, versioning, schema enforcement
+
+6. Views
+7. Datasets
+8. External data sources
+
+/FileStore/tables/b1.csv
+
+
+Azure data factory
+==================
+Cloud based ETL for scheduling and managing workflows, orchestration and transformation of data at scale
+Integration & data transformation
+
+Linked services --> Connection strings, defines information needed for the data factory to connect with external resources
+
+Datasets --> Represents the data structures within the data stores, which simply points to reference the data you want in your activities
+
+Pipeline --> Logical grouping of activities that performs a unit of work
+
+Activity --> Processing step in a pipeline
+
+Data movement
+Data transformation
+Controlflow
+
+Triggers --> Determines when a pipeline execution needs to be kicked off. 
+
+Schedule trigger --> A trigger that involves a pipeline on a clock schedule
 
 
 
