@@ -135,6 +135,8 @@ HTTP--> 80
 SSH --> 22
 HTTPS --> 443
 
+Azure bastion --> Used to SSH/connect to your VM if you don't have a public IP assigned to the VM
+
 Virtual Network
 =============
 Act as a communication channel between resources launched in the cloud.
@@ -395,7 +397,7 @@ Cosmos db
 Nosql db --> Columnar (Hbase, Cassandra), Document db (Mongo db, Cosmos db), Graph db(Neo4j, tiger graph), Key-value pair (Redi's, dynamo db)
 
 
-APi's --> sql(rdbms), mongo(document), cassandra(columnar), gremlin(graph), table(key/value pair), postgre sql
+APi's --> Core sql(rdbms), mongo(document), cassandra(columnar), gremlin(graph), table(key/value pair), postgre sql
 api --> dot net, node js, python, java
 
 
@@ -458,10 +460,12 @@ Activities defines actions within pipelines --> Copying data, running a notebook
 Triggers
 Integration dataset
 
-
 Azure Databricks
 ================
 Spark based Big data analytics platform optimized for Azure
+
+Data plane
+Control plane
 
 Workspace
 =========
@@ -471,9 +475,12 @@ Notebooks
 Libraries
 Experimements
 
-
 Cluster --> Set of computational resources and configurations on which you run data engineering, data science workloads, such as production ETL pipelines, streaming analytics,
 ad-hoc analysis & ML model
+
+Billing is made on a term called databricks unit (dbu)
+
+Job clusters cannot be restarted
 
 Folders
 =======
@@ -483,6 +490,9 @@ Special folders
 ===============
 Shared
 users
+
+Databricks data science & engineering platform--> Analytics
+Databricks ML --> ML
 
 Data components
 ===============
@@ -521,7 +531,8 @@ Triggers --> Determines when a pipeline execution needs to be kicked off.
 
 Schedule trigger --> A trigger that involves a pipeline on a clock schedule
 
-
+T-sql --> Transact sql --> Microsoft --> Azure sql database --> procedural programming
+U-sql --> Big data analytics --> Az data lake analytics, az synapse --> scalable data processing
 
 
 
