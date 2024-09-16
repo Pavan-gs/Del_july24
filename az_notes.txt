@@ -530,9 +530,205 @@ Controlflow
 Triggers --> Determines when a pipeline execution needs to be kicked off. 
 
 Schedule trigger --> A trigger that involves a pipeline on a clock schedule
+Tumbling window
+Events
+
 
 T-sql --> Transact sql --> Microsoft --> Azure sql database --> procedural programming
 U-sql --> Big data analytics --> Az data lake analytics, az synapse --> scalable data processing
+
+Dataflow --> Allows the developer to perform graphical data transformation
+
+Azure Functions
+===============
+
+Install node.js
+npm install -g azure-functions-core-tools
+Install python <12.0 version
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUSer
+
+
+Stream analytics Job
+====================
+2 type of inputs
+
+Data stream --> IOT hub, Event Hub, Blob storage
+Reference data --> SQL server, Blob storage, Files 
+
+Event hub --> Application data
+IOT hub --> IOT devices / sensors
+Service hub --> Message broker which enables publish / subscribe 
+
+1. Create azure IOT hub
+2. Add a device to IOT hub
+3. Pass the connection string to IOT web simulator
+4. Create stream analytics job
+5. Create Power BI dashboard / Blob storage
+
+IOT hub
+
+Event hub
+=========
+
+
+ML studio
+==========
+Designer / Pipeline
+
+Auto ML --> datasets --> register data
+
+build a new auto ml project
+
+{
+  "input_data": {
+    "columns": [
+      "CreditScore",
+      "Age",
+      "Tenure",
+      "Balance",
+      "NumOfProducts",
+      "HasCrCard",
+      "IsActiveMember",
+      "EstimatedSalary"
+    ],
+    "index": [0],
+    "data": [[619,42,2,0,1,1,1,101348.88]
+]
+  }
+}
+
+
+Python SDK
+
+
+Data lake storage gen 1 --> Optimized for Hadoop and Spark workloads, supports hive, pig and mapreduce
+
+Data lake storage gen 2 --> Optimised for blob storage, analytics, ai and ml, high level security, supports ADF, synapse, databricks etc.
+
+Azure Data lake Analytics --> Dstributed analytics service built on top of YARN
+Microsoft Azure doesn't provide data lake analytics service anymore.
+
+
+1. Build and deploy a ML model on the given data using Designer, Auto ML and Python SDK
+MTcars
+
+2. Upload the data into Azure blob storage, access it in Databricks, analyse and prepare reports
+
+Software Development Life Cycle
+================================
+
+1. Waterfall --> Sequential, linear
+
+Scope of change is little
+Good for simple, cost affective well defined, limited time period projects
+
+
+2. Agile
+
+Iterations, project is delivered in iterations/sprints
+Scope of change is likely
+Allows to collect the feedback often from the clients, continuous improvement
+
+Methodologies
+=============
+Scrum
+Kanban
+Lean
+
+Benefits
+========
+Improved customer satisfaction, reduced project risk
+
+Challenges
+==========
+Cultural shift, Scaling to larger teams, lack of clear requirements
+
+
+3. Devops
+
+Development + Operations
+
+Culture --> Collaboration between Development & Operations team, they work as 1 team over here.
+
+Phases --> CICD pipelines
+=========================
+
+Continous Development --> Version control --> Git, Bit bucket,sub version 
+
+Continous Testing --> Selenium/ selenium grid --> Automation testing software, Opensource web driver 
+
+Continous Integration --> Jenkins --> Opensource, 1000+ plugins
+
+Continous Deployment --> Puppet, Chef, Ansible, Saltstack
+
+Continous monitoring --> Splunk, Nagios, Grafana
+
+
+Build tools --> Maven, Gradle, Ant
+
+Tools
+=====
+Dockers --> Containers allows you to package your applications & its dependencies
+Dockerhub --> Cloud based containarisation platform
+Kubernetes --> Container management technology.
+
+Puppet --> Operational tool, Define configurations for each & every host, scaaling up/down is dynamic
+
+Nagios --> Continuous montioring
+
+Azure Devops
+=============
+Boards
+Epic
+issues bugs
+features
+user story
+artifacts --> allows teams to share packages such as Maven, npm, NuGet, 
+and more from public and private sources and integrate package sharing into your pipelines
+
+Repos --> To connect with your repository
+Pipelines --> To build pipelines
+
+Az    vs    AWS
+
+blobs        s3
+Cosmos db    Dynamo db
+Synapse      Redshift
+SQL          DBS
+ADF          Pipelines
+ML studio    Sagemaker
+PowerBi      Athena, glue
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
